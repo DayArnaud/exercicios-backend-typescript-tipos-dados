@@ -1,10 +1,4 @@
-interface UserData {
-    nome: string;
-    idade: number;
-    status: boolean;
-}
-
-const usuarios: UserData[] = [
+const lista = [
     {
         nome: "Guido",
         idade: 32,
@@ -37,13 +31,19 @@ const usuarios: UserData[] = [
     },
 ]
 
-function filteredUsers(users: UserData[], nameFound: string): UserData[] {
-    const nameLowercase = nameFound.toLowerCase();
-
-    return users.filter(user => user.nome.toLowerCase().includes(nameLowercase));
+const filtrarUsuarios = (usuarios: {
+    nome: string
+    idade: number
+    status: boolean
+}[],
+    usuario: string): {
+        nome: string,
+        idade: number,
+        status: boolean
+    }[] => {
+    const resultado = usuarios.filter((usuarioLista) => {
+        return usuarioLista.nome.toLowerCase().includes(usuario.toLowerCase())
+    });
+    return resultado;
 }
-
-const searchName = "jo";
-const results = filteredUsers(usuarios, searchName);
-
-console.log(results);
+console.log(filtrarUsuarios(lista, 'Gui'));
