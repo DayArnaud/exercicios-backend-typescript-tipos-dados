@@ -1,4 +1,4 @@
-const soletrando = (texto: string) => {
+const soletrando = (texto: string): string => {
     return texto.split('').join('-');
 }
 console.log(soletrando('programador'));
